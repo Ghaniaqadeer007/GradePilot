@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GradePilot Pro - Elite Multi-Model AI Academic Workspace</title>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Mermaid.js for Visual Diagram Rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+  <!-- PDF.js for PDF Syllabus Text Extraction -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+  <!-- Tesseract.js for Syllabus Image OCR Extraction -->
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+
+  <!-- KaTeX for Beautiful LaTeX Math Formula Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==================== STEP 1: MAIN OPENING PAGE ==================== -->
+  <div class="landing-page-shell" id="landing-page">
+    
+    <!-- Navigation Navbar -->
+    <nav class="landing-navbar">
+      <div class="landing-nav-brand" id="landing-logo-btn">
+        <i class="fa-solid fa-plane-departure brand-icon"></i>
+        <span>Grade<span class="brand-accent">Pilot</span> <span class="pro-badge">PRO</span></span>
+      </div>
+
+      <div class="landing-nav-links">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#gpa" class="nav-link">CGPA Predictor</a>
+      </div>
+
+      <div class="landing-nav-actions">
+        <button class="btn btn-outline btn-sm" id="landing-login-btn">
+          <i class="fa-solid fa-right-to-bracket"></i> Log In
+        </button>
+        <button class="btn btn-primary btn-sm" id="landing-signup-btn">
+          <i class="fa-solid fa-user-plus"></i> Sign Up Free
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+      <div class="hero-content">
+        <div class="hero-badge mb-3">
+          <i class="fa-solid fa-brain text-accent"></i> NEXT-GEN MULTI-MODEL AI ACADEMIC PLATFORM
+        </div>
+        <h1 class="hero-title">
+          Master Complex CS Courses & <span class="text-gradient">Predict Your CGPA</span>.
+        </h1>
+        <p class="hero-subtitle">
+          GradePilot Pro combines Google Gemini 1.5, Anthropic Claude 3.5 Sonnet, and OpenAI GPT-4o to transform syllabi into deep textbook notes, C++/SQL memory simulators, AI audio podcasts, Mermaid diagrams, and target grade calculators.
+        </p>
+
+        <!-- CTA Directing to Sign Up / Log In Page -->
+        <div class="hero-actions mt-4">
+          <button class="btn btn-accent btn-lg" id="hero-get-started-btn">
+            <i class="fa-solid fa-arrow-right"></i> Launch Student Workspace
+          </button>
+          <button class="btn btn-outline btn-lg ms-2" id="hero-login-direct-btn">
+            <i class="fa-solid fa-right-to-bracket"></i> Existing Student Log In
+          </button>
+        </div>
+
+        <!-- Student Feature Highlights -->
+        <div class="hero-stats-row mt-4">
+          <div class="stat-badge-card">
+            <i class="fa-solid fa-robot text-accent"></i>
+            <div>
+              <strong>Multi-Model AI Comparison</strong>
+              <small>Gemini vs Claude vs GPT-4o</small>
+            </div>
+          </div>
+          <div class="stat-badge-card">
+            <i class="fa-solid fa-headphones text-success"></i>
+            <div>
+              <strong>AI Audio Summaries</strong>
+              <small>Podcast Lecture Audio</small>
+            </div>
+          </div>
+          <div class="stat-badge-card">
+            <i class="fa-solid fa-calculator text-info"></i>
+            <div>
+              <strong>Target Grade Predictor</strong>
+              <small>Exam Simulator & GPA Audit</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Real High-Quality Photo Showcase Frame -->
+      <div class="hero-visual-wrapper">
+        <div class="glass-image-card">
+          <img src="images/hero_study.jpg" alt="Student Laptop Study Workspace" class="hero-banner-img">
+          <div class="floating-overlay-card top-right">
+            <i class="fa-solid fa-book-open text-accent"></i>
+            <span>Feynman & PhD Math Notes</span>
+          </div>
+          <div class="floating-overlay-card bottom-left">
+            <i class="fa-solid fa-diagram-project text-success"></i>
+            <span>Interactive ER Diagrams</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Features Showcase -->
+    <section class="landing-section" id="features">
+      <div class="section-header text-center">
+        <h2 class="section-heading">Elite Study Workspace for University Students</h2>
+        <p class="section-subheading">Advanced AI intelligence tools built for deep comprehension, retention, and academic excellence.</p>
+      </div>
+
+      <div class="features-grid mt-4">
+
+        <div class="feature-card glass-card">
+          <div class="feature-img-wrapper">
+            <img src="images/syllabus_pdf.jpg" alt="Syllabus PDF & Document Import" class="feature-card-img">
+          </div>
+          <div class="feature-body mt-3">
+            <div class="feature-icon"><i class="fa-solid fa-file-import text-accent"></i></div>
+            <h3>AI Syllabus Ingestion</h3>
+            <p>Upload syllabus PDFs or screenshots. Gemini 1.5 and PDF.js extract text and construct structured 4-week course modules automatically.</p>
+          </div>
+        </div>
+
+        <div class="feature-card glass-card">
+          <div class="feature-img-wrapper">
+            <img src="images/notes_book.jpg" alt="Structured Technical Notes" class="feature-card-img">
+          </div>
+          <div class="feature-body mt-3">
+            <div class="feature-icon"><i class="fa-solid fa-book-open text-primary"></i></div>
+            <h3>Multi-Level Note Modes</h3>
+            <p>Switch instantly between <strong>Standard Notes</strong>, <strong>Feynman Simplifier (ELI5)</strong>, and <strong>PhD Math Proof</strong> perspectives.</p>
+          </div>
+        </div>
+
+        <div class="feature-card glass-card">
+          <div class="feature-img-wrapper">
+            <img src="images/diagrams_er.jpg" alt="Entity-Relationship Diagrams & Architecture" class="feature-card-img">
+          </div>
+          <div class="feature-body mt-3">
+            <div class="feature-icon"><i class="fa-solid fa-diagram-project text-success"></i></div>
+            <h3>Architecture Diagrams</h3>
+            <p>Visualize database schemas, data structures, and algorithm execution flows with dynamic Mermaid diagrams.</p>
+          </div>
+        </div>
+
+        <div class="feature-card glass-card">
+          <div class="feature-img-wrapper">
+            <img src="images/flashcards_study.jpg" alt="Spaced Repetition Study Flashcards" class="feature-card-img">
+          </div>
+          <div class="feature-body mt-3">
+            <div class="feature-icon"><i class="fa-solid fa-layer-group text-warning"></i></div>
+            <h3>SM-2 Flashcards & Code Simulator</h3>
+            <p>Review key terms with 3D flip flashcards and trace C++/SQL code line-by-line with dynamic memory stack/heap visualization.</p>
+          </div>
+        </div>
+
+        <div class="feature-card glass-card">
+          <div class="feature-img-wrapper">
+            <img src="images/ai_tutor.jpg" alt="Course AI Tutor Study Assistant" class="feature-card-img">
+          </div>
+          <div class="feature-body mt-3">
+            <div class="feature-icon"><i class="fa-solid fa-code-compare text-accent"></i></div>
+            <h3>Side-by-Side AI Comparison</h3>
+            <p>Compare answers side-by-side from Gemini 1.5, Claude 3.5 Sonnet, and GPT-4o for complete academic accuracy.</p>
+          </div>
+        </div>
+
+        <div class="feature-card glass-card" id="gpa">
+          <div class="feature-img-wrapper">
+            <img src="images/cgpa_calc.jpg" alt="Multi-Semester CGPA Calculator & Grades" class="feature-card-img">
+          </div>
+          <div class="feature-body mt-3">
+            <div class="feature-icon"><i class="fa-solid fa-calculator text-info"></i></div>
+            <h3>Target Grade Predictor & CGPA Audit</h3>
+            <p>Simulate the exact score you need on your Final Exam to reach your target GPA, and generate official transcript audit reports.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- How It Works 3-Step Section -->
+    <section class="landing-section bg-card-dark" id="how-it-works">
+      <div class="section-header text-center">
+        <h2 class="section-heading">How GradePilot Pro Works</h2>
+      </div>
+
+      <div class="steps-grid mt-4">
+        <div class="step-card glass-card">
+          <div class="step-number">1</div>
+          <h3>Create Your Account</h3>
+          <p>Sign up in seconds to start with a clean student workspace.</p>
+        </div>
+
+        <div class="step-card glass-card">
+          <div class="step-number">2</div>
+          <h3>Import Your Courses</h3>
+          <p>Upload a PDF syllabus, photo screenshot, or paste text to generate weekly modules.</p>
+        </div>
+
+        <div class="step-card glass-card">
+          <div class="step-number">3</div>
+          <h3>Study & Predict CGPA</h3>
+          <p>Listen to audio summaries, compare AI answers, run code trace simulations, and predict final exam targets.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <button class="btn btn-accent btn-lg" id="bottom-signup-btn">
+          <i class="fa-solid fa-user-plus"></i> Create Free Account & Start Studying
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+      <div class="footer-brand">
+        <i class="fa-solid fa-plane-departure brand-icon"></i>
+        <span>GradePilot Pro</span>
+      </div>
+      <p class="footer-text">Built for university students. Powered by Gemini 1.5, Claude 3.5 & GPT-4o.</p>
+    </footer>
+
+  </div>
+
+  <!-- ==================== STEP 2: SIGN UP / LOG IN PAGE ==================== -->
+  <div class="auth-screen-overlay hidden" id="auth-screen">
+    <div class="auth-card glass-card">
+      <div class="auth-brand">
+        <i class="fa-solid fa-plane-departure brand-icon"></i>
+        <h2>Grade<span class="brand-accent">Pilot</span> <span class="pro-badge">PRO</span></h2>
+        <p class="auth-subtitle">Sign in to access your study workspace</p>
+      </div>
+
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" id="auth-tab-login">Log In</button>
+        <button class="auth-tab-btn" id="auth-tab-signup">Sign Up</button>
+      </div>
+
+      <!-- Log In Form -->
+      <form id="login-form" class="auth-form">
+        <div class="form-group">
+          <label for="login-email">Email Address</label>
+          <input type="email" id="login-email" class="form-control" placeholder="student@university.edu" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary full-width mt-3">
+          <i class="fa-solid fa-right-to-bracket"></i> Log In to Dashboard
+        </button>
+      </form>
+
+      <!-- Sign Up Form -->
+      <form id="signup-form" class="auth-form hidden">
+        <div class="form-group">
+          <label for="signup-name">Full Name</label>
+          <input type="text" id="signup-name" class="form-control" placeholder="Alex Chen" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-email">Email Address</label>
+          <input type="email" id="signup-email" class="form-control" placeholder="student@university.edu" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password" class="form-control" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary full-width mt-3">
+          <i class="fa-solid fa-user-plus"></i> Create Account & Enter Dashboard
+        </button>
+      </form>
+
+      <div class="auth-divider"><span>OR</span></div>
+
+      <button class="btn btn-outline full-width" id="guest-login-btn">
+        <i class="fa-solid fa-user-check"></i> Continue as Demo Student
+      </button>
+      
+      <button class="btn btn-link full-width mt-2 text-muted" id="back-to-landing-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back to Main Page
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== STEP 3: DASHBOARD WORKSPACE PAGE ==================== -->
+  <div class="app-container hidden" id="app-dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <i class="fa-solid fa-plane-departure brand-icon"></i>
+          <span class="brand-title">Grade<span class="brand-accent">Pilot</span> <span class="pro-badge-sm">PRO</span></span>
+        </div>
+        <button class="icon-btn collapse-btn" id="toggle-sidebar-btn" title="Collapse Sidebar">
+          <i class="fa-solid fa-angles-left"></i>
+        </button>
+      </div>
+
+      <div class="sidebar-section">
+        <button class="btn btn-primary full-width" id="open-ingest-modal-btn">
+          <i class="fa-solid fa-plus"></i> <span>Ingest Syllabus</span>
+        </button>
+      </div>
+
+      <div class="sidebar-section scrollable">
+        <div class="section-title">Your Courses</div>
+        <nav class="course-nav" id="course-list">
+          <!-- Dynamically populated courses -->
+        </nav>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="section-title">Tools & Analytics</div>
+        <button class="nav-item-btn" id="open-gpa-btn">
+          <i class="fa-solid fa-calculator text-accent"></i> <span>CGPA & Target Predictor</span>
+        </button>
+        <button class="nav-item-btn" id="open-compare-btn">
+          <i class="fa-solid fa-code-compare text-success"></i> <span>Multi-LLM Comparison</span>
+        </button>
+        <button class="nav-item-btn" id="open-settings-btn">
+          <i class="fa-solid fa-key text-warning"></i> <span>BYOK AI Keys</span>
+        </button>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="key-status-indicator" id="key-status-badge">
+          <span class="status-dot success" id="status-dot"></span>
+          <span id="status-text">Claude 3.5 Sonnet Active</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+
+      <!-- Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <button class="icon-btn mobile-menu-btn" id="mobile-sidebar-toggle">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <button class="icon-btn home-nav-btn me-2" id="return-landing-btn" title="Return to Main Page">
+            <i class="fa-solid fa-house text-accent"></i>
+          </button>
+          <div class="breadcrumb">
+            <span class="course-name" id="current-course-title">Select Course</span>
+            <i class="fa-solid fa-chevron-right separator"></i>
+            <span class="topic-name" id="current-topic-title">Overview</span>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <!-- Header Note Comprehension Mode Switcher -->
+          <div class="comprehension-mode-wrapper me-2">
+            <select id="comprehension-mode-select" class="header-model-select" title="Comprehension Note Perspective">
+              <option value="standard">📖 Standard Textbook</option>
+              <option value="feynman">💡 Feynman Mode (ELI5)</option>
+              <option value="phd">🎓 PhD Math Proof</option>
+            </select>
+          </div>
+
+          <!-- Active AI Model Selector -->
+          <div class="ai-model-selector-wrapper me-2">
+            <select id="header-model-select" class="header-model-select" title="Active AI Model Engine">
+              <option value="claude">🧠 Claude 3.5 Sonnet</option>
+              <option value="gemini">✨ Gemini 1.5 Flash</option>
+              <option value="openai">⚡ GPT-4o Mini</option>
+            </select>
+          </div>
+
+          <button class="btn btn-outline btn-sm me-2" id="trigger-audio-summary-btn" title="Listen to Audio Podcast Summary">
+            <i class="fa-solid fa-headphones text-accent"></i> Audio Summary
+          </button>
+
+          <button class="btn btn-outline btn-sm" id="toggle-tutor-btn">
+            <i class="fa-solid fa-robot"></i> AI Tutor
+          </button>
+          
+          <div class="user-profile-menu" id="user-profile-btn">
+            <div class="avatar-circle" id="user-avatar">A</div>
+            <span class="user-name" id="user-display-name">Alex</span>
+            <i class="fa-solid fa-chevron-down ms-1" style="font-size: 0.75rem;"></i>
+            
+            <div class="profile-dropdown hidden" id="profile-dropdown-menu">
+              <div class="dropdown-item" id="logout-btn">
+                <i class="fa-solid fa-right-from-bracket text-danger"></i> Log Out
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Topic Navigator -->
+      <div class="topic-bar scrollable-x" id="topic-bar">
+        <!-- Dynamically rendered topic pills -->
+      </div>
+
+      <!-- Workspace Tabs -->
+      <div class="workspace-tabs">
+        <button class="tab-btn active" data-tab="tab-notes">
+          <i class="fa-solid fa-book-open"></i> Notes
+        </button>
+        <button class="tab-btn" data-tab="tab-mermaid">
+          <i class="fa-solid fa-diagram-project"></i> Diagram
+        </button>
+        <button class="tab-btn" data-tab="tab-code-trace">
+          <i class="fa-solid fa-code"></i> Code Memory Simulator
+        </button>
+        <button class="tab-btn" data-tab="tab-flashcards">
+          <i class="fa-solid fa-layer-group"></i> Flashcards
+        </button>
+        <button class="tab-btn" data-tab="tab-quiz">
+          <i class="fa-solid fa-vial-circle-check"></i> Quiz & Practice Exam
+        </button>
+        <button class="tab-btn" data-tab="tab-youtube">
+          <i class="fa-brands fa-youtube"></i> Videos
+        </button>
+        <button class="tab-btn" data-tab="tab-calendar">
+          <i class="fa-solid fa-calendar-days"></i> Timetable & Calendar
+        </button>
+      </div>
+
+      <!-- Workspace Body -->
+      <div class="workspace-body">
+
+        <!-- Tab 1: Topic Notes -->
+        <section class="tab-panel active" id="tab-notes">
+          <div class="notes-header-actions mb-2 text-end">
+            <button class="btn btn-outline btn-sm me-2" id="open-llm-compare-btn">
+              <i class="fa-solid fa-code-compare text-success"></i> Compare AI Models
+            </button>
+            <button class="btn btn-outline btn-sm" id="export-notes-btn" title="Download Notes">
+              <i class="fa-solid fa-file-arrow-down text-accent"></i> Export Notes (Markdown / Print)
+            </button>
+          </div>
+          <div class="notes-container glass-card" id="notes-content">
+            <div class="placeholder-state">
+              <i class="fa-solid fa-book-bookmark placeholder-icon"></i>
+              <h3>No Topic Selected</h3>
+              <p>Select a course topic from the bar above to load study notes.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tab 2: Mermaid Diagrams -->
+        <section class="tab-panel" id="tab-mermaid">
+          <div class="diagram-viewport glass-card">
+            <div id="mermaid-render-target"></div>
+          </div>
+        </section>
+
+        <!-- Tab 3: Interactive Code Trace & Memory Stack/Heap Simulator -->
+        <section class="tab-panel" id="tab-code-trace">
+          <div class="glass-card">
+            <div class="panel-header mb-3">
+              <h3><i class="fa-solid fa-code text-accent me-2"></i> Dynamic Code Execution & Memory Simulator</h3>
+              <button class="btn btn-accent btn-sm" id="run-code-trace-btn">
+                <i class="fa-solid fa-play"></i> Run Line-by-Line Trace
+              </button>
+            </div>
+
+            <div class="code-trace-layout">
+              <div class="code-editor-box">
+                <h4 style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">C++ Pointer & Memory Execution</h4>
+                <pre style="background: var(--bg-black); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.825rem; color: #93C5FD; height: 320px; overflow-y: auto;"><code>1: #include &lt;iostream&gt;
+2: int main() {
+3:     int stackVar = 42; // Stack Frame Allocation
+4:     int* heapPtr = new int(100); // Heap Allocation
+5:     std::cout &lt;&lt; *heapPtr &lt;&lt; std::endl;
+6:     delete heapPtr; // Memory Deallocation
+7:     heapPtr = nullptr; // Nullify Dangling Pointer
+8:     return 0;
+9: }</code></pre>
+              </div>
+
+              <div class="memory-inspector-box">
+                <h4 style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">Stack vs Heap Live State</h4>
+                <div class="memory-state-card" id="memory-trace-output">
+                  <div class="mem-block stack-block mb-3">
+                    <strong>Call Stack Frame (main):</strong>
+                    <div style="font-family: var(--font-mono); font-size: 0.8rem; margin-top: 0.3rem;">
+                      <code>stackVar</code> = 42 (Address: 0x7ffd91a)<br>
+                      <code>heapPtr</code> = 0x0052b80 (Pointer Address)
+                    </div>
+                  </div>
+
+                  <div class="mem-block heap-block">
+                    <strong>Operating System Heap Pool:</strong>
+                    <div style="font-family: var(--font-mono); font-size: 0.8rem; margin-top: 0.3rem;">
+                      Address <code>0x0052b80</code>: Value = 100 [State: Allocated]
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tab 4: Flashcards (SM-2) -->
+        <section class="tab-panel" id="tab-flashcards">
+          <div class="flashcard-deck-container">
+            <div class="sm2-stats-badge mb-3" id="sm2-stats-summary">
+              Due: <span id="due-count">0</span> | Learned: <span id="learned-count">0</span>
+            </div>
+
+            <div class="flashcard-3d" id="flashcard-element">
+              <div class="card-face card-front" id="card-front-text">
+                Click "Start Review" to begin.
+              </div>
+              <div class="card-face card-back" id="card-back-text">
+                Answer will appear here.
+              </div>
+            </div>
+
+            <div class="sm2-controls hidden" id="sm2-rating-controls">
+              <button class="sm2-btn rating-again" data-rating="0">
+                <span class="rate-name">Again</span>
+                <span class="rate-time">&lt; 1m</span>
+              </button>
+              <button class="sm2-btn rating-hard" data-rating="3">
+                <span class="rate-name">Hard</span>
+                <span class="rate-time">1d</span>
+              </button>
+              <button class="sm2-btn rating-good" data-rating="4">
+                <span class="rate-name">Good</span>
+                <span class="rate-time">3d</span>
+              </button>
+              <button class="sm2-btn rating-easy" data-rating="5">
+                <span class="rate-name">Easy</span>
+                <span class="rate-time">7d</span>
+              </button>
+            </div>
+
+            <div class="session-actions mt-3" id="session-initial-controls">
+              <button class="btn btn-accent btn-lg" id="start-flashcards-btn">
+                <i class="fa-solid fa-play"></i> Start Flashcard Review
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tab 5: Quiz Sandbox & Full Practice Exam -->
+        <section class="tab-panel" id="tab-quiz">
+          <div class="quiz-container glass-card" id="quiz-container">
+            <div class="placeholder-state" id="quiz-start-screen">
+              <i class="fa-solid fa-pen-ruler placeholder-icon"></i>
+              <h3>Adaptive Quiz & AI Practice Exam</h3>
+              <p>Test your topic knowledge with instant client-side grading or generate a full AI Practice Exam.</p>
+              <div class="mt-3">
+                <button class="btn btn-accent btn-lg me-2" id="start-quiz-btn">
+                  <i class="fa-solid fa-bolt"></i> Start Topic Quiz
+                </button>
+                <button class="btn btn-primary btn-lg" id="generate-practice-exam-btn">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Full Practice Exam
+                </button>
+              </div>
+            </div>
+
+            <div class="quiz-body hidden" id="quiz-body">
+              <form id="quiz-form">
+                <div id="quiz-questions-list"></div>
+                <button type="submit" class="btn btn-success btn-lg full-width mt-4">
+                  <i class="fa-solid fa-paper-plane"></i> Submit Answers
+                </button>
+              </form>
+            </div>
+
+            <div class="quiz-report hidden" id="quiz-report">
+              <div class="report-header">
+                <h3>Quiz Performance Breakdown</h3>
+                <div class="score-circle" id="quiz-score-badge">0%</div>
+              </div>
+              <div class="weakness-section" id="quiz-weakness-analysis">
+                <h4>Diagnostics & Solutions</h4>
+                <div id="weakness-list"></div>
+              </div>
+              <button class="btn btn-outline full-width mt-3" id="retake-quiz-btn">
+                <i class="fa-solid fa-rotate-right"></i> Retake Quiz
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tab 6: YouTube Videos -->
+        <section class="tab-panel" id="tab-youtube">
+          <div class="video-grid" id="video-grid"></div>
+        </section>
+
+        <!-- Tab 7: Specialized Timetable & Editable Calendar -->
+        <section class="tab-panel" id="tab-calendar">
+          <div class="panel-header">
+            <h3>Specialized Study Timetable & Calendar</h3>
+            <div>
+              <button class="btn btn-accent btn-sm me-2" id="auto-generate-timetable-btn">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Auto-Generate Timetable
+              </button>
+              <button class="btn btn-primary btn-sm" id="add-event-btn">
+                <i class="fa-solid fa-plus"></i> Add Event / Exam
+              </button>
+            </div>
+          </div>
+
+          <div class="calendar-grid-wrapper mt-3">
+            <div class="glass-card calendar-card">
+              <h4>Specialized Study Schedule (Mon - Fri)</h4>
+              <div class="timetable-grid" id="timetable-grid"></div>
+            </div>
+
+            <div class="glass-card calendar-card">
+              <h4>Upcoming Deadlines & Tests</h4>
+              <div class="events-list" id="events-list"></div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- AI TUTOR DRAWER -->
+    <aside class="ai-tutor-drawer" id="tutor-drawer">
+      <div class="drawer-header">
+        <div class="drawer-title">
+          <i class="fa-solid fa-robot text-accent"></i>
+          <span>Multi-Model AI Tutor</span>
+        </div>
+        <button class="icon-btn" id="close-tutor-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="chat-messages scrollable" id="chat-messages">
+        <div class="chat-bubble bot-bubble">
+          👋 Hi! Ask me any question about your course notes! Powered by Gemini 1.5, Claude 3.5 & GPT-4o.
+        </div>
+      </div>
+
+      <div class="chat-input-area">
+        <textarea id="chat-input" placeholder="Ask AI tutor..." rows="2"></textarea>
+        <button class="btn btn-accent" id="send-chat-btn"><i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- MODALS -->
+
+  <!-- Multi-LLM Side-by-Side Comparison Modal -->
+  <div class="modal-overlay hidden" id="compare-modal">
+    <div class="modal-card glass-card modal-lg">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-code-compare text-success"></i> Side-by-Side Multi-LLM Comparison</h3>
+        <button class="icon-btn close-modal-btn" data-modal="compare-modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc" style="font-size: 0.85rem; color: var(--text-muted);">Compare explanations for the active topic across all 3 AI models side-by-side:</p>
+        <div class="compare-grid mt-3">
+          <div class="compare-card">
+            <h4 style="color: #93C5FD; font-size: 0.95rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-brain"></i> Claude 3.5 Sonnet</h4>
+            <div style="font-size: 0.8rem; line-height: 1.6; color: #CBD5E1;">
+              Focuses on <strong>strict mathematical proofs</strong>, explicit runtime upper bounds (&Omicron;(f(n))), and C++ pointer deallocation safety.
+            </div>
+          </div>
+
+          <div class="compare-card">
+            <h4 style="color: #6EE7B7; font-size: 0.95rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-bolt"></i> OpenAI GPT-4o Mini</h4>
+            <div style="font-size: 0.8rem; line-height: 1.6; color: #CBD5E1;">
+              Focuses on <strong>high-yield exam cheat sheets</strong>, rapid active recall bullet points, and instant time complexity tricks.
+            </div>
+          </div>
+
+          <div class="compare-card">
+            <h4 style="color: #FDE68A; font-size: 0.95rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-wand-magic-sparkles"></i> Gemini 1.5 Flash</h4>
+            <div style="font-size: 0.8rem; line-height: 1.6; color: #CBD5E1;">
+              Focuses on <strong>multimodal research overviews</strong>, broad domain context, and real-world system architecture case studies.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline close-modal-btn" data-modal="compare-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BYOK Settings Modal -->
+  <div class="modal-overlay hidden" id="settings-modal">
+    <div class="modal-card glass-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-key text-accent"></i> Multi-Model BYOK AI Settings</h3>
+        <button class="icon-btn close-modal-btn" data-modal="settings-modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">Enter your API keys. Stored strictly in browser LocalStorage.</p>
+
+        <div class="form-group">
+          <label for="api-provider-select">Primary AI Engine Provider</label>
+          <select id="api-provider-select" class="form-control">
+            <option value="claude">🧠 Anthropic Claude API (Claude 3.5 Sonnet)</option>
+            <option value="gemini">✨ Google Gemini API (Gemini 1.5 Flash / Pro)</option>
+            <option value="openai">⚡ OpenAI API (GPT-4o / GPT-4o Mini)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="claude-key-input">Anthropic Claude API Key</label>
+          <input type="password" id="claude-key-input" class="form-control" placeholder="sk-ant-api...">
+        </div>
+
+        <div class="form-group">
+          <label for="gemini-key-input">Google Gemini API Key</label>
+          <input type="password" id="gemini-key-input" class="form-control" placeholder="AIzaSy...">
+        </div>
+
+        <div class="form-group">
+          <label for="openai-key-input">OpenAI API Key</label>
+          <input type="password" id="openai-key-input" class="form-control" placeholder="sk-proj-...">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline close-modal-btn" data-modal="settings-modal">Cancel</button>
+        <button class="btn btn-primary" id="save-api-key-btn">Save Keys</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ingest Syllabus Modal -->
+  <div class="modal-overlay hidden" id="ingest-modal">
+    <div class="modal-card glass-card modal-lg">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-wand-magic-sparkles text-accent"></i> AI Auto-Ingest Syllabus</h3>
+        <button class="icon-btn close-modal-btn" data-modal="ingest-modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="course-title-input">Course Code & Title</label>
+          <input type="text" id="course-title-input" class="form-control" placeholder="e.g. CS301 - Data Structures">
+        </div>
+
+        <div class="ingest-source-tabs">
+          <button class="source-tab-btn active" id="source-tab-text"><i class="fa-solid fa-align-left"></i> Paste Text</button>
+          <button class="source-tab-btn" id="source-tab-pdf"><i class="fa-solid fa-file-pdf text-danger"></i> Upload PDF Document</button>
+          <button class="source-tab-btn" id="source-tab-image"><i class="fa-solid fa-file-image text-accent"></i> Upload Picture / Screenshot</button>
+        </div>
+
+        <div class="form-group ingest-source-panel" id="panel-source-text">
+          <label for="syllabus-text-input">Weekly Outline Text</label>
+          <textarea id="syllabus-text-input" class="form-control" rows="6" placeholder="Week 1: Array Allocation & Memory&#10;Week 2: Linked Lists & Pointers&#10;Week 3: Stacks & Queues"></textarea>
+        </div>
+
+        <div class="form-group ingest-source-panel hidden" id="panel-source-pdf">
+          <label for="pdf-file-input">Select Syllabus PDF File</label>
+          <input type="file" id="pdf-file-input" class="form-control" accept=".pdf">
+          <small class="text-muted mt-1 display-block">PDF.js and Gemini 1.5 read and extract all text and weekly topics automatically.</small>
+        </div>
+
+        <div class="form-group ingest-source-panel hidden" id="panel-source-image">
+          <label for="image-file-input">Select Syllabus Screenshot / Photo</label>
+          <input type="file" id="image-file-input" class="form-control" accept="image/*">
+          <small class="text-muted mt-1 display-block">Tesseract OCR scans the picture and extracts text topics automatically.</small>
+        </div>
+
+        <div class="ocr-status-bar hidden mt-3" id="ingest-status-bar">
+          <i class="fa-solid fa-spinner fa-spin text-accent"></i>
+          <span id="ingest-status-text">Processing file...</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline close-modal-btn" data-modal="ingest-modal">Cancel</button>
+        <button class="btn btn-primary" id="process-syllabus-btn">
+          <i class="fa-solid fa-robot"></i> Read File & Build Course
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GPA & Multi-Semester CGPA Predictor Modal -->
+  <div class="modal-overlay hidden" id="gpa-modal">
+    <div class="modal-card glass-card modal-lg">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-calculator text-accent"></i> CGPA & Target Exam Score Predictor</h3>
+        <button class="icon-btn close-modal-btn" data-modal="gpa-modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="gpa-mode-tabs mb-3">
+          <button class="gpa-tab-btn active" id="gpa-mode-single">
+            <i class="fa-solid fa-book"></i> Single Semester GPA
+          </button>
+          <button class="gpa-tab-btn" id="gpa-mode-multi">
+            <i class="fa-solid fa-layer-group"></i> Multi-Semester Cumulative CGPA
+          </button>
+        </div>
+
+        <div id="gpa-panel-single">
+          <div class="gpa-summary-box">
+            <div class="gpa-stat">
+              <span class="stat-label">Calculated Semester GPA</span>
+              <span class="stat-value text-accent" id="calculated-cgpa">4.00</span>
+            </div>
+            <div class="gpa-stat">
+              <span class="stat-label">Total Credits</span>
+              <span class="stat-value" id="total-credits">0</span>
+            </div>
+          </div>
+
+          <!-- Target Exam Grade Predictor Box -->
+          <div class="analogy-box mt-3 mb-3">
+            <strong style="color: #93C5FD; font-size: 0.875rem;"><i class="fa-solid fa-bullseye"></i> Target Grade Simulator:</strong>
+            <p style="font-size: 0.8rem; color: #CBD5E1; margin-top: 0.2rem;">To achieve a target <strong>3.80 GPA</strong>, your remaining Final Exams require an average score of <strong>88% (A-)</strong>.</p>
+          </div>
+
+          <table class="gpa-table mt-3">
+            <thead>
+              <tr>
+                <th>Course Name</th>
+                <th>Credits</th>
+                <th>Grade (A to F)</th>
+                <th>Points</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="gpa-rows"></tbody>
+          </table>
+
+          <button class="btn btn-outline mt-3" id="add-gpa-row-btn"><i class="fa-solid fa-plus"></i> Add Course</button>
+        </div>
+
+        <div id="gpa-panel-multi" class="hidden">
+          <div class="gpa-summary-box">
+            <div class="gpa-stat">
+              <span class="stat-label">Cumulative CGPA (2+ Semesters)</span>
+              <span class="stat-value text-accent" id="calculated-multi-cgpa">3.85</span>
+            </div>
+            <div class="gpa-stat">
+              <span class="stat-label">Overall Total Credits</span>
+              <span class="stat-value" id="total-multi-credits">0</span>
+            </div>
+          </div>
+
+          <p class="text-muted mt-2" style="font-size: 0.825rem;">Combine grades across 2 or more semesters to calculate your overall cumulative CGPA:</p>
+
+          <table class="gpa-table mt-2">
+            <thead>
+              <tr>
+                <th>Semester Name</th>
+                <th>Semester Credits</th>
+                <th>Semester GPA (0.0 - 4.0)</th>
+                <th>Quality Points</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="multi-gpa-rows"></tbody>
+          </table>
+
+          <button class="btn btn-outline mt-3" id="add-semester-row-btn"><i class="fa-solid fa-plus"></i> Add Semester</button>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline close-modal-btn" data-modal="gpa-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add / Edit Calendar Deadline Event Modal -->
+  <div class="modal-overlay hidden" id="event-modal">
+    <div class="modal-card glass-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-calendar-plus text-accent"></i> <span id="event-modal-title">Add Upcoming Deadline</span></h3>
+        <button class="icon-btn close-modal-btn" data-modal="event-modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="event-edit-id" value="">
+        <div class="form-group">
+          <label for="event-title-input">Event / Test Title</label>
+          <input type="text" id="event-title-input" class="form-control" placeholder="e.g. Data Structures Quiz 1" required>
+        </div>
+        <div class="form-group">
+          <label for="event-date-input">Deadline Date</label>
+          <input type="date" id="event-date-input" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="event-type-select">Category</label>
+          <select id="event-type-select" class="form-control">
+            <option value="quiz">Quiz</option>
+            <option value="midterm">Midterm Exam</option>
+            <option value="final">Final Exam</option>
+            <option value="test">Test</option>
+            <option value="presentation">Presentation</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline close-modal-btn" data-modal="event-modal">Cancel</button>
+        <button class="btn btn-primary" id="save-event-btn">Save Event</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
